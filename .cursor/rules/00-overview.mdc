@@ -6,13 +6,14 @@ alwaysApply: true
 
 ## 제품 맥락
 
-- gitontoit는 **대규모 Git 리포지토리 이해 보조** 서비스다.
+- gitontoit는 **GitHub 링크만으로 즉시 리포지토리 분석** 서비스다.
+- 핵심 UX: GitHub URL 붙여넣기 → 자동 분석 → AI Q&A
 - 핵심 기능: 리포 인덱싱(트리/파일/청크/임베딩) → 검색/요약/Q&A → 가이드 생성.
 
 ## 기본 스택 (고정)
 
 - Frontend: **Next.js(App Router) + TypeScript + Tailwind + shadcn/ui + TanStack Query**
-- Backend: **Next.js Route Handlers**, Supabase(Postgres + pgvector)
+- Backend: **Next.js Route Handlers**,
 - Auth: **Clerk**
 - LLM: **OpenAI**(gpt-4o-mini 이상), Embedding: **text-embedding-3-large**
 - 배포: **Vercel**, 데이터: **Supabase**
