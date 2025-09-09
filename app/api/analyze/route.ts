@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { env } from "@/lib/env";
 import { fetchRepoFiles } from "@/lib/services/github";
 import { chunkFiles } from "@/lib/services/chunking";
 import { embedChunks } from "@/lib/services/embedding";
@@ -18,6 +19,17 @@ const analyzeRequestSchema = z.object({
 export async function POST(
   request: NextRequest
 ): Promise<NextResponse<AnalyzeResult>> {
+  // OpenAI API 키 확인
+  if (!env.OPENAI_API_KEY) {
+    return NextResponse.json(
+      { 
+        ok: false, 
+        error: "OpenAI API key is not configured. Please set OPENAI_API_KEY environment variable." 
+      },
+      { status: 500 }
+    );
+  }
+
   // AbortController로 90초 타임아웃 설정
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 90000);

@@ -12,8 +12,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Search, FileText, MessageSquare, Zap, Github, ArrowRight } from "lucide-react";
-import { parseGitHubUrl, isValidGitHubUrl } from "@/lib";
+import { Search, FileText, MessageSquare, Zap, Github, ArrowRight, AlertTriangle } from "lucide-react";
+import { parseGitHubUrl, isValidGitHubUrl, env } from "@/lib";
 
 export default function Home() {
   const [githubUrl, setGithubUrl] = useState("");
@@ -69,6 +69,18 @@ export default function Home() {
             GitHub URL을 붙여넣으면 AI가 자동으로 코드를 분석하고 질문에 답변해드립니다.
           </p>
 
+          {/* 환경변수 설정 안내 */}
+          {!env.OPENAI_API_KEY && (
+            <Alert className="max-w-2xl mx-auto mb-8">
+              <AlertTriangle className="h-4 w-4" />
+              <AlertDescription>
+                OpenAI API 키가 설정되지 않았습니다. 
+                <code className="mx-1 px-1 py-0.5 bg-muted rounded text-sm">.env.local</code> 파일에 
+                <code className="mx-1 px-1 py-0.5 bg-muted rounded text-sm">OPENAI_API_KEY</code>를 추가해주세요.
+              </AlertDescription>
+            </Alert>
+          )}
+
           {/* GitHub URL 입력 폼 */}
           <Card className="max-w-2xl mx-auto mb-8">
             <CardContent className="p-6">
@@ -82,9 +94,15 @@ export default function Home() {
                       value={githubUrl}
                       onChange={(e) => setGithubUrl(e.target.value)}
                       className="pl-10 h-12 text-lg"
+                      disabled={!env.OPENAI_API_KEY}
                     />
                   </div>
-                  <Button type="submit" size="lg" className="h-12 px-8">
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="h-12 px-8"
+                    disabled={!env.OPENAI_API_KEY}
+                  >
                     <Search className="mr-2 h-5 w-5" />
                     분석하기
                     <ArrowRight className="ml-2 h-4 w-4" />

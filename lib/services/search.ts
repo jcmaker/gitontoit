@@ -3,6 +3,10 @@ import { env } from "@/lib/env";
 import { Chunk, SearchHit, Citation } from "@/lib/types/analyze";
 import { embedQuery } from "./embedding";
 
+if (!env.OPENAI_API_KEY) {
+  throw new Error("OPENAI_API_KEY environment variable is required");
+}
+
 const openai = new OpenAI({
   apiKey: env.OPENAI_API_KEY,
 });
