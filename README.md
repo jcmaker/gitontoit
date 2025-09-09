@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# gitontoit
 
-## Getting Started
+대규모 Git 리포지토리 이해 보조 서비스
 
-First, run the development server:
+## 🚀 기술 스택
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Frontend**: Next.js 15 (App Router) + TypeScript + TailwindCSS + shadcn/ui
+- **State Management**: TanStack Query
+- **Icons**: Lucide React
+- **Validation**: Zod
+- **Styling**: TailwindCSS v4 with CSS Variables
+
+## 📁 프로젝트 구조
+
+```
+├── app/                    # Next.js App Router
+├── components/
+│   ├── ui/                # shadcn/ui 원자 컴포넌트
+│   └── common/            # 도메인별 공통 컴포넌트
+├── lib/                   # 서버 전용 유틸리티 및 데이터 접근
+├── hooks/                 # 커스텀 React 훅
+└── .cursor/rules/         # 프로젝트 개발 규칙
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ 개발 환경 설정
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 필수 요구사항
+- Node.js 18+ 
+- npm 또는 yarn
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 설치 및 실행
 
-## Learn More
+```bash
+# 의존성 설치
+npm install
 
-To learn more about Next.js, take a look at the following resources:
+# 개발 서버 실행
+npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 빌드
+npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 린트 검사
+npm run lint
+```
 
-## Deploy on Vercel
+개발 서버는 [http://localhost:3000](http://localhost:3000)에서 실행됩니다.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎯 주요 기능 (예정)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Git 리포지토리 인덱싱 및 분석
+- 코드 검색 및 요약
+- AI 기반 Q&A 시스템
+- 리포지토리 가이드 생성
+
+## 📝 개발 규칙
+
+프로젝트의 개발 규칙은 `.cursor/rules/` 디렉토리에 정의되어 있습니다:
+
+- 함수형/선언적 프로그래밍 우선
+- TypeScript strict 모드
+- 컴포넌트 분리 및 모듈화
+- 안전한 에러 처리
+- 성능과 가독성의 균형
+
+## 🤝 기여하기
+
+1. 이 저장소를 포크합니다
+2. 기능 브랜치를 생성합니다 (`git checkout -b feat/amazing-feature`)
+3. 변경사항을 커밋합니다 (`git commit -m 'feat: add amazing feature'`)
+4. 브랜치에 푸시합니다 (`git push origin feat/amazing-feature`)
+5. Pull Request를 생성합니다
+
+## 📄 라이선스
+
+이 프로젝트는 MIT 라이선스 하에 있습니다.
