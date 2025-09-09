@@ -1,0 +1,17 @@
+---
+description: 파일/폴더 구조
+globs:
+alwaysApply: true
+---
+
+## 생성 규칙
+
+- 새 기능은 **app/(authed)/feature/** 아래 라우트 우선.
+- 데이터 접근은 **lib/**에 작성(서버 전용).
+- UI 원자 컴포넌트는 **components/ui**에, 도메인 UI는 **components/common**에.
+- 공유 타입은 **/packages/types** (모노레포 시).
+
+## 파일 네이밍
+
+- 폴더/파일: `kebab-case`, React 컴포넌트 파일: PascalCase.tsx
+- 테스트: `*.test.ts` / `*.spec.ts`

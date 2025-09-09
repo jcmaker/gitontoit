@@ -1,0 +1,28 @@
+---
+description: 개요 / 목표
+globs:
+alwaysApply: true
+---
+
+## 제품 맥락
+
+- gitontoit는 **대규모 Git 리포지토리 이해 보조** 서비스다.
+- 핵심 기능: 리포 인덱싱(트리/파일/청크/임베딩) → 검색/요약/Q&A → 가이드 생성.
+
+## 기본 스택 (고정)
+
+- Frontend: **Next.js(App Router) + TypeScript + Tailwind + shadcn/ui + TanStack Query**
+- Backend: **Next.js Route Handlers**, Supabase(Postgres + pgvector)
+- Auth: **Clerk**
+- LLM: **OpenAI**(gpt-4o-mini 이상), Embedding: **text-embedding-3-large**
+- 배포: **Vercel**, 데이터: **Supabase**
+
+## 설계 원칙 (항상 지켜야 할 7가지)
+
+1. **함수형/선언적** 우선. 클래스 지양.
+2. **명시성** 우선(타입, 변수명, early-return, 좁은 스코프).
+3. **분리/모듈화**(UI/비즈니스/데이터/유틸 계층 분리).
+4. **안전 기본값**(에러 처리, 타임아웃, 레이트리밋, 보안).
+5. **성능-가독성 균형**(먼저 명확, 필요 시 최적화).
+6. **테스트 가능성**(순수 함수, I/O 분리, 의존성 주입).
+7. **확장 여지**(폴더/네이밍/인터페이스로 확장 고려).

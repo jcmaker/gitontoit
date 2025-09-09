@@ -1,0 +1,22 @@
+---
+description: Git 규칙 / 브랜칭
+globs:
+alwaysApply: true
+---
+
+## 브랜치 전략
+
+- `main`: 프로덕션
+- `dev`: 통합 브랜치
+- `feat/*`, `fix/*`, `chore/*`로 작업 → PR → `dev` → 안정화 후 `main`.
+
+## 커밋 메시지 (Conventional Commits)
+
+- `feat:`, `fix:`, `refactor:`, `chore:`, `test:`, `docs:`, `perf:`, `build:`
+- 예: `feat(search): add pgvector hybrid filter`
+
+## PR 체크리스트
+
+- 동작 스크린샷/동영상(가능 시)
+- 테스트/타입 통과
+- 보안/성능 영향 기재(있다면)

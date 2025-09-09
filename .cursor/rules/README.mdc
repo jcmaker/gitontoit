@@ -1,0 +1,11 @@
+---
+description: gitontoit – Cursor Guardrails
+globs:
+alwaysApply: true
+---
+
+이 폴더의 문서는 Cursor가 생성/수정하는 코드와 문서의 **가드레일**이다.
+
+- 모든 규칙은 **프로덕션 품질**을 목표로 한다.
+- 의심스러울 땐, 가장 **보수적으로**(안전/보안/성능 우선) 선택한다.
+- 규칙 간 충돌 시, **00-overview.md → 90-do-not.md → 나머지** 우선순위를 따른다.

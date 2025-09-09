@@ -1,0 +1,23 @@
+---
+description: UI/UX & 스타일
+globs:
+alwaysApply: true
+---
+
+## 스타일
+
+- Tailwind + shadcn/ui. 불필요한 커스텀 CSS 지양.
+- spacing/배치 그리드 우선. 카드/패널은 **rounded-2xl**, shadow-sm.
+- 로딩/비동기: skeleton/spinner + 낙관적 UI는 신중.
+
+## 접근성
+
+- 레이블/aria-\* 필수, 키보드 탭 이동 가능해야 함.
+- 대비(contrast) 준수, 포커스 스타일 명확.
+
+## 컴포넌트 작성 체크리스트
+
+- props 인터페이스 분리/문서화
+- 가장 작은 책임으로 분리(합성)
+- 로딩/에러/empty 상태 UI 포함
+- 테스트 가능(로직은 훅으로 추출)

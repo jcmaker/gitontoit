@@ -1,0 +1,44 @@
+---
+description: 코드 스타일
+globs:
+alwaysApply: true
+---
+
+## TypeScript
+
+- **strict** 모드 필수. any 지양, unknown/never 적극 사용.
+- 도메인 타입은 **interface** 선호(`type`은 유니온/유틸에 한정).
+- 명명 규칙:
+  - boolean: `is*`, `has*`, `can*` (예: `isLoading`, `hasError`)
+  - Promise 함수: 접미사 `Async` (예: `fetchRepoTreeAsync`)
+  - React 훅: `use*`
+  - 이벤트 핸들러: `handle*`
+- 에러 타입: `unknown` → 좁히기(`instanceof Error`, zod 등).
+
+## 함수
+
+- **순수 함수** 선호, 부작용 최소화.
+- 가드절(early return)로 중첩 줄이기.
+- 파라미터는 객체 1개(옵션 포함), 필드는 명시적.
+- 30~60줄을 넘기면 쪼개기.
+
+## React
+
+- **Client 컴포넌트**와 **Server 컴포넌트** 책임 분리.
+- 상태 최소화, 파생 상태는 memo로 계산.
+- 데이터 페칭은 **서버에서** 우선, 클라이언트는 캐시/상호작용.
+- 목록 렌더링 key는 **stable id** 사용, index 지양.
+
+## 에러 처리
+
+- API/유틸은 **Result 패턴** 권장:
+  ```ts
+  type Ok<T> = { ok: true; data: T }
+  type Err<E = string> = { ok: false; error: E }
+  사용자 메시지와 로그 메시지를 분리(내부 로그는 상세, UI는 안전/간결).
+  ```
+
+포맷팅/품질
+ESLint + Prettier + import 정렬.
+
+주석: “왜 이렇게 했는가(WHY)” 중심. 무엇/how는 코드/타입으로 설명.
