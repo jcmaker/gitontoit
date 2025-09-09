@@ -10,13 +10,13 @@ const openai = new OpenAI({
   apiKey: env.OPENAI_API_KEY,
 });
 
-export interface EmbeddingResult {
+export type EmbeddingResult = {
   ok: true;
   chunks: Chunk[];
 } | {
   ok: false;
   error: string;
-}
+};
 
 /**
  * 청크들에 임베딩을 생성합니다

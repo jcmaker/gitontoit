@@ -6,13 +6,13 @@ const octokit = new Octokit({
   // 필요시 GITHUB_TOKEN 환경변수 추가 가능
 });
 
-export interface FetchRepoResult {
+export type FetchRepoResult = {
   ok: true;
   files: GitHubFile[];
 } | {
   ok: false;
   error: string;
-}
+};
 
 /**
  * GitHub 리포지토리의 트리와 텍스트 파일들을 가져옵니다
